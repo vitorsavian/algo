@@ -1,5 +1,6 @@
 #ifndef SEARCH_H
 
-int add(int a, int b);
+int* newArray(int size);
+int freeArray(int* array);
 
 #endif // !SEARCH_H
