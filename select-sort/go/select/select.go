@@ -1,0 +1,4 @@
+package selectsort
+
+func NewArray() {
+}
