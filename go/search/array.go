@@ -1,12 +1,19 @@
-package main
+package search
 
-import (
-	"binary-search/search"
-	"fmt"
-)
+import "fmt"
+
+func NewArraySearch(number int) []int {
+	var array []int
+
+	for i := 0; i < number; i++ {
+		array = append(array, i)
+	}
+
+	return array
+}
 
 func mainArray() {
-	array := search.NewArraySearch(1000)
+	array := NewArraySearch(1000)
 	number := 24
 
 	high := len(array) - 1
@@ -41,8 +48,3 @@ func mainArray() {
 		fmt.Println("------------------------------------------")
 	}
 }
-
-func main() {
-	mainArray()
-}
-
