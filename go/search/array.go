@@ -12,9 +12,7 @@ func NewArraySearch(number int) []int {
 	return array
 }
 
-func mainArray() {
-	array := NewArraySearch(1000)
-	number := 24
+func FindNumber(number int, array []int) bool {
 
 	high := len(array) - 1
 	low := 0
@@ -47,4 +45,6 @@ func mainArray() {
 		fmt.Printf("after %d tries we couldn't find\n", tries)
 		fmt.Println("------------------------------------------")
 	}
+
+	return itHas
 }

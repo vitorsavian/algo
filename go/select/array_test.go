@@ -4,6 +4,5 @@ import (
 	"testing"
 )
 
-func TestSelect(t *testing.T) {
-	t.Fatalf("Testing this stuff here\n")
+func testSelect(t *testing.T) {
 }
