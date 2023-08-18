@@ -1,27 +1,38 @@
-pub mod arr {
-    pub fn new_array() -> Vec<i32> {
+pub mod array {
+    pub fn new_array(length: i32) -> Vec<i32> {
         let mut vector: Vec<i32> = Vec::new();
-        for i in 1..10000 {
+        for i in 1..length {
             vector.push(i)
         }
         vector
     }
-
-    pub fn search_array(vector: &Vec<i32>) {
-        let number_to_find = 1;
+  
+    pub fn search_array(vector: &Vec<i32>, number_to_find: i32) -> bool {
         let mut high = vector.len() - 1;
         let mut guess;
         let mut low = 0;
         let mut tries = 1;
         
+        if number_to_find > vector.len() as i32 {
+            return false;
+        }
+
+        if vector[low] == number_to_find || vector[high] == number_to_find {
+            return false;
+        }
+
         loop {
             guess = (high + low) / 2;
-
-            if vector[guess] == number_to_find {
-                println!("finded your number after some {:?} tries!", tries);
+    
+            if guess == 1 && vector[guess] != number_to_find {
                 break;
             }
 
+            if vector[guess] == number_to_find {
+                println!("finded your number after some {:?} tries!", tries);
+                return true;
+            }
+    
             if vector[guess] < number_to_find {
                 low = guess;
                 tries += 1;
@@ -33,7 +44,10 @@ pub mod arr {
                 tries += 1;
                 continue;
             }
+    
         }
-         
+
+        false
     }
 }
+
