@@ -1,5 +1,6 @@
 #include "search.h"
 #include <stdlib.h>
+#include <CUnit/CUnit.h>
 
 int* newArray(int size) {
 	int* arr = (int*)malloc(size * sizeof(int));
