@@ -3,10 +3,11 @@
 #define LOG(x) std::cout << x << std::endl;
 
 LinkedList::LinkedList() {
-  list = NULL;
+  list = nullptr;
   size = 0;
 };
 
+// TODO: Change everything of malloc to new and free to delete
 int LinkedList::Add(std::string key, int value) {
   // create a Linked list with malloc and set the stuff inside
   List *newItem = (List *)malloc(sizeof(List));
@@ -14,7 +15,6 @@ int LinkedList::Add(std::string key, int value) {
   newItem->value = value;
   newItem->next = NULL;
   newItem->prev = NULL;
-
   if (list == NULL) {
     list = newItem;
     size++;
@@ -66,5 +66,9 @@ int LinkedList::FreeList() {
   for (List *tmp = list; tmp; tmp = tmp->next) {
     free(tmp);
   }
+
+  list = NULL;
+  size = 0;
+
   return 0;
 }

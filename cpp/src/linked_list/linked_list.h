@@ -3,6 +3,7 @@
 
 #include <string>
 
+// TODO: Setar certinho para ter o destructor e o constructor das coisa ai
 class LinkedList {
 public:
   struct List {
