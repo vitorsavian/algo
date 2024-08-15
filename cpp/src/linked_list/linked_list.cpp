@@ -2,13 +2,18 @@
 #include <string>
 #define LOG(x) std::cout << x << std::endl;
 
-LinkedList::LinkedList() { size = 0; };
+LinkedList::LinkedList() {
+  list = NULL;
+  size = 0;
+};
 
 int LinkedList::Add(std::string key, int value) {
   // create a Linked list with malloc and set the stuff inside
   List *newItem = (List *)malloc(sizeof(List));
   newItem->key = key;
   newItem->value = value;
+  newItem->next = NULL;
+  newItem->prev = NULL;
 
   if (list == NULL) {
     list = newItem;
@@ -16,9 +21,12 @@ int LinkedList::Add(std::string key, int value) {
     return 0;
   }
 
-  for (List *i = list; i->next != NULL; i = i->next) {
-    i->next = newItem;
-    newItem->prev = i;
+  for (List *i = list; i; i = i->next) {
+    if (i->next == NULL) {
+      i->next = newItem;
+      newItem->prev = i;
+      break;
+    }
   }
 
   size++;
@@ -30,7 +38,7 @@ LinkedList::List *LinkedList::Get(std::string key) {
     return NULL;
   }
 
-  for (List *tmp = list; tmp->next != NULL; tmp = tmp->next) {
+  for (List *tmp = list; tmp; tmp = tmp->next) {
     if (tmp->key == key) {
       return tmp;
     }
@@ -55,8 +63,8 @@ int LinkedList::FreeList() {
     return 0;
   }
 
-  for (List *tmp = list; tmp->next != NULL; tmp = tmp->next) {
-    free(list);
+  for (List *tmp = list; tmp; tmp = tmp->next) {
+    free(tmp);
   }
   return 0;
 }

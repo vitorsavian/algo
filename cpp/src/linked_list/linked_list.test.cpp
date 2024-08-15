@@ -9,10 +9,9 @@ int FirstTest() {
   LinkedList::List *tmp{list.Get("1")};
 
   if (tmp->value == 24) {
+    list.FreeList();
     return EXIT_SUCCESS;
   }
-
-  list.FreeList();
 
   return EXIT_FAILURE;
 };
