@@ -20,7 +20,7 @@ public:
 
 private:
   List *list;
-  int size{0};
+  int size;
 };
 
 #endif

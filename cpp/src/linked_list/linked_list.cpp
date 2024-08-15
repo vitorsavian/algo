@@ -1,7 +1,8 @@
 #include "linked_list.h"
 #include <string>
+#define LOG(x) std::cout << x << std::endl;
 
-LinkedList::LinkedList() {}
+LinkedList::LinkedList() { size = 0; };
 
 int LinkedList::Add(std::string key, int value) {
   // create a Linked list with malloc and set the stuff inside
@@ -11,7 +12,7 @@ int LinkedList::Add(std::string key, int value) {
 
   if (list == NULL) {
     list = newItem;
-    size = 1;
+    size++;
     return 0;
   }
 
@@ -20,7 +21,7 @@ int LinkedList::Add(std::string key, int value) {
     newItem->prev = i;
   }
 
-  ++size;
+  size++;
   return 0;
 };
 
@@ -37,7 +38,15 @@ LinkedList::List *LinkedList::Get(std::string key) {
   return 0;
 };
 
-int LinkedList::Update(std::string key, int value) { return 0; };
+int LinkedList::Update(std::string key, int value) {
+  if (list == NULL) {
+    return 1;
+  }
+
+  List *item = Get(key);
+  item->value = value;
+  return 0;
+};
 
 int LinkedList::Delete(std::string key) { return 0; };
 
