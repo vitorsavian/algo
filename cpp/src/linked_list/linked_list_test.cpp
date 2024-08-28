@@ -3,11 +3,11 @@
 #include <iostream>
 
 int AddTest() {
-  LinkedList *list = new LinkedList();
+  auto *list = new LinkedList();
+  const std::string key(1, '1');
+  list->Add(key, 24);
 
-  list->Add("1", 24);
-
-  LinkedList::List *tmp{list->Get("1")};
+  LinkedList::List *tmp(list->Get(key));
 
   if (tmp->value == 24) {
     list->FreeList();
@@ -20,14 +20,12 @@ int AddTest() {
 };
 
 int UpdateTest() {
-  std::cout << "aqui?" << std::endl;
-  LinkedList *list = new LinkedList();
-  std::cout << "aqui?" << std::endl;
-  list->Add("1", 24);
-  std::cout << "aqui?" << std::endl;
-  list->Update("1", 28);
+  const std::string key(1, '1');
+  auto *list = new LinkedList();
+  list->Add(key, 24);
+  list->Update(key, 28);
 
-  LinkedList::List *tmp{list->Get("1")};
+  LinkedList::List *tmp(list->Get(key));
 
   if (tmp->value != 24) {
     list->FreeList();
@@ -39,8 +37,9 @@ int UpdateTest() {
   return EXIT_FAILURE;
 }
 
-int main(int argc, char *argv[]) {
-  int err{AddTest()};
+int TestLinkedList() {
+  std::cout << "Test linked-list" << std::endl;
+  int err(AddTest());
   if (err != EXIT_SUCCESS) {
     return EXIT_FAILURE;
   }
@@ -50,5 +49,5 @@ int main(int argc, char *argv[]) {
     return EXIT_FAILURE;
   }
 
-  return EXIT_SUCCESS;
+  return 0;
 }

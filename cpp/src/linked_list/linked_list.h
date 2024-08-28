@@ -24,4 +24,6 @@ private:
   int size;
 };
 
+int TestLinkedList();
+
 #endif
