@@ -1,8 +1,9 @@
-//
-// Created by Vitor Savian on 28/08/24.
-//
-
 #ifndef BINARYSEARCH_H
 #define BINARYSEARCH_H
+
+namespace binarysearch {
+    int Search(int size);
+}
+
 
 #endif //BINARYSEARCH_H
