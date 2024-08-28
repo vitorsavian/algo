@@ -4,6 +4,6 @@
 
 int main() {
     // TestLinkedList();
-
-    binarysearch::Search(100);
+    int size = 100;
+    Search(size);
 }
