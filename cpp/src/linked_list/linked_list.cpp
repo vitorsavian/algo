@@ -43,6 +43,7 @@ LinkedList::List *LinkedList::Get(std::string key) {
       return tmp;
     }
   }
+
   return 0;
 };
 
@@ -56,7 +57,29 @@ int LinkedList::Update(std::string key, int value) {
   return 0;
 };
 
-int LinkedList::Delete(std::string key) { return 0; };
+int LinkedList::Delete(std::string key) {
+  if (list == NULL) {
+    return 1;
+  }
+
+  for (List *tmp = list; tmp; tmp = tmp->next) {
+    if (tmp->key == key) {
+      if (tmp->prev == NULL) {
+        list = tmp->next;
+        free(tmp);
+        return 0;
+      }
+
+      tmp->prev->next = tmp->next;
+      free(tmp);
+      return 0;
+    }
+  }
+
+  size--;
+
+  return 0;
+};
 
 int LinkedList::FreeList() {
   if (list == NULL) {
