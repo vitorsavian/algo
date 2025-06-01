@@ -4,13 +4,7 @@ namespace datastructure {
     Queue::Queue() : queue(nullptr), length(0) {}
 
     Queue::~Queue() {
-        Node *current = queue;
-        while (current) {
-            Node *next = current->next;
-            delete current;
-            current = next;
-        }
-
+        ClearMemory(queue);
         length = 0;
     }
 
@@ -30,7 +24,7 @@ namespace datastructure {
         while (current->next) {
             current = current->next;
         }
-        
+
         current->next = node;
         length++;
         return 0;

@@ -10,11 +10,6 @@ namespace datastructure {
         return node;
     };
 
-    int DeleteNode(Node *node) {
-
-        return 0;
-    };
-
     int ClearMemory(Node *node) {
         if (node == nullptr) {
             return 1;
