@@ -4,10 +4,8 @@ project(tests)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# # Inclui as libs (garanta que os caminhos estejam corretos)
-add_subdirectory(${CMAKE_SOURCE_DIR}/../lib/datastructure ${CMAKE_BINARY_DIR}/datastructure)
-add_subdirectory(${CMAKE_SOURCE_DIR}/../lib/search ${CMAKE_BINARY_DIR}/search)
-add_subdirectory(${CMAKE_SOURCE_DIR}/../lib/sort ${CMAKE_BINARY_DIR}/sort)
+# Inclui as libs (garanta que os caminhos estejam corretos)
+add_subdirectory(${CMAKE_SOURCE_DIR}/../lib ${CMAKE_BINARY_DIR}/lib)
 
 # Cria o executável dos testes a partir do main.cpp dos testes
 add_executable(tests_main main.cpp)

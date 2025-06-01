@@ -5,9 +5,12 @@ namespace datastructure {
     class Queue {
         private:
             Node *queue;
-            int lenght;
+            int length;
         public:
+            Queue();
+            ~Queue();
+            int GetLength() const; 
             int Remove();
-            int Add();     
+            int Add(int value);            
     };
 }
