@@ -4,10 +4,12 @@
 namespace datastructure {
     class Stack {
         private:
-            Node *queue;
+            Node *stack;
             int length;
         public:
+            Stack();
+            ~Stack();
             int Pop();
-            int Push();     
+            int Push(int value);     
     };
 }
