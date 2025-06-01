@@ -29,4 +29,15 @@ namespace datastructure {
         length++;
         return 0;
     }
+
+    int Queue::Remove() {
+        if (queue == nullptr) return -1;
+        
+        Node *temp = queue;
+        queue = queue->next;
+        delete temp;
+        length--;
+
+        return 0;
+    }
 }
